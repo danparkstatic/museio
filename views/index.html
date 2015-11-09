@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Remote Youtube API</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css" type="text/css">
+<link rel="stylesheet" href="/stylesheets/font-awesome.min.css" type="text/css">
+<style type="text/css">
+body{
+	background-color:#eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="jumbotron col-xs-10 col-md-10 col-sm-10 col-lg-10">
+	
+	  <h2>Remote Youtube 
+		<span class="hidden-xs hidden-sm">(Desktop)</span>
+		<span class="hidden-md hidden-xs hidden-lg">(Tablet)</span>
+		<span class="hidden-sm hidden-md hidden-lg">(Mobile)</span>
+	  </h2>
+	  <p>Youtube Control API is a video-sharing website head-quartered in San Bruno, California. The service was created by three former PayPal employees in February 2005.</p>
+	  <p><a class="btn btn-primary btn-lg" href="https://github.com/wcyz666" role="button"><i class="fa fa-github"></i> Find me on GitHub</a></p>
+	</div>
+	<p class="pull-right text-right col-xs-2 hidden-xs hidden-sm"><img id="qrcode" class="img-responsive" src="" alt="QR Code"/></p>
+</div>	
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="row">
+				<div class="hidden-xs hidden-sm col-md-9 col-lg-9">
+					<div class="panel panel-success">
+						<div class="panel-heading">YouTube Player</div>
+						<div class="panel-body">
+						    <div id="player"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-lg-3">
+					<div class="panel panel-danger">
+						<div class="panel-heading">YouTube Remote Control</div>
+						<div class="panel-body">
+						<div class="container-fluid">
+							<div class="row" id="control-panel">
+								<div class="center-block">
+                                    <button class="btn btn-success text-center col-xs-4 video-control" id="play">
+										<i class="fa fa-play fa-2x"></i><span class="hidden-md hidden-xs hidden-lg"> PLAY</span>
+                                    </button>
+                                    <button class="btn btn-danger text-center col-xs-4 video-control" id="pause">
+										<i class="fa fa-pause fa-2x"></i><span class="hidden-md hidden-xs hidden-lg"> PAUSE</span>
+
+                                    </button>
+                                    <button class="btn btn-warning text-center col-xs-4 video-control" id="stop">
+										<i class="fa fa-stop fa-2x"></i><span class="hidden-md hidden-xs hidden-lg"> STOP</span>
+									</button>
+								</div>
+								<br><br><br>
+								<div class="center-block">
+                                    <button class="btn btn-info text-center col-xs-3 video-control" id="prev">
+										<i class="fa fa-fast-backward fa-2x"></i><span class="hidden-md hidden-xs hidden-lg"> PREVIOUS</span>
+									</button>
+                                    <button class="btn btn-info text-center col-xs-3 video-control" id="rewind">
+										<i class="fa fa-backward fa-2x"></i><span class="hidden-md hidden-xs hidden-lg"> REWIND</span>
+									</button>
+                                    <button class="btn btn-primary text-center col-xs-3 video-control" id="forward">
+										<i class="fa fa-forward fa-2x fa-inverse"></i><span class="hidden-md hidden-xs hidden-lg"> FORWARD</span>
+									</button>
+                                    <button class="btn btn-primary text-center col-xs-3 video-control" id="next">
+										<i class="fa fa-fast-forward fa-2x fa-inverse"></i><span class="hidden-md hidden-xs hidden-lg"> NEXT</span>
+									</button>
+								</div>
+								<br><br><br>
+								<div class="center-block">
+                                    <button class="btn btn-warning text-center col-xs-6 video-control" id="unmute" >
+										<i class="fa fa-volume-up fa-2x "></i><span class="hidden-md hidden-xs hidden-lg"> UNMUTE</span>
+									</button>
+                                    <button class="btn btn-warning text-center col-xs-6 video-control" id="mute">
+										<i class="fa fa-volume-off fa-2x"></i><span class="hidden-md hidden-xs hidden-lg"> MUTE</span>
+									</button>
+		
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>				
+					<div class="panel panel-warning">
+						<div class="panel-heading">YouTube PlayList</div>
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+							</ul>
+							<br>
+							<form class="form" action="/api/add" id="video">
+							  <div class="form-group col-xs-10">
+								  <input required="required" type="text" class="form-control" id="video_id" placeholder="Video ID or URL">
+							  </div>
+							  <button type="submit" class="btn btn-primary col-xs-2"><i class="fa fa-plus-square"></i></button>
+							</form>
+                            <button class="btn btn-default center-block col-xs-12" id="clearall">Clear All</button>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+<footer class="footer"><p class="text-center">Wang Cheng, 2015. All Right reserved.</p></footer>
+</div>
+
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/player.js"></script>
+</html>
